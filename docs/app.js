@@ -25,6 +25,7 @@ app.get('/about-us',(req,res)=>{
 });
 //404 sending back the page indicating that the page doeas not exist
 app.use((req,res)=>{
-res.sendFile('./css.html',{root:__dirname});
+res.status(404).sendFile('./css.html',{root:__dirname});//this doesn't mean that it was realized that it is an error so we have to set status code to inicate that this page is an error page
+//as shown 
 });
  
