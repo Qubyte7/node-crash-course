@@ -5,7 +5,9 @@ const app = express();// here we've invoked the express  function and stored it 
 //could be able to make an instance from it
 
 //listen for request
-app.listen(3000);
+app.listen(3003,()=>{
+  console.log('sever is running');
+});
 
 
 
@@ -16,7 +18,13 @@ app.listen(3000);
 
    app.get('/about',(req,res)=>{
     res.sendFile('./dark.html',{root: __dirname});
+});
 
-
+app.get('/about-us',(req,res)=>{
+  res.redirect('/about');
+});
+//404 sending back the page indicating that the page doeas not exist
+app.use((req,res)=>{
+res.sendFile('./css.html',{root:__dirname});
 });
  
